@@ -1,1 +1,16 @@
 VintageStudio
+
+Tree:
++
+|
++-64TassEditor
+|
++-VintageStudioProject
+|
++-prg2xex
+|
++-VintageStudio.sln
+
+64TassEditor - extensions to VS Editor - syntax coloring, auto formatting etc. 
+VintageSutiodProject - Project System - building (integration with the compiler), running (integration with the emulator)
+prg2xex - used for converting .prg files (C64 format) to .xex files (Atari format)
