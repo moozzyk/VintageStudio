@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <!-- Collapse property groups ? -->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Default</Configuration>
+  </PropertyGroup>
+  <PropertyGroup>
+    <!-- Set the VintageStudioPath property by probing in different locations where Vintage Studio could be installed -->
+    <!-- Regular LocalAppData -->
+    <VintageStudioPath Condition=" '$(VintageStudioPath)' == '' AND Exists('$(LocalAppData)\Microsoft\VisualStudio\10.0\Extensions\Pawel Kadluczka\Vintage Studio\1.0')">$(LocalAppData)\Microsoft\VisualStudio\10.0\Extensions\Pawel Kadluczka\Vintage Studio\1.0</VintageStudioPath>
+    <!-- Experimental LocalAppData -->
+    <VintageStudioPath Condition=" '$(VintageStudioPath)' == '' AND Exists('$(LocalAppData)\Microsoft\VisualStudio\10.0Exp\Extensions\Pawel Kadluczka\Vintage Studio\1.0')">$(LocalAppData)\Microsoft\VisualStudio\10.0Exp\Extensions\Pawel Kadluczka\Vintage Studio\1.0</VintageStudioPath>
+</PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
+    <OutputPath>bin\</OutputPath>
+    <OutputFileName>$(Name).prg</OutputFileName>
+    <EmulatorPath>x64.exe</EmulatorPath>
+    <EmulatorRunArguments>-autostart "$(MSBuildProjectDirectory)\$(OutputPath)$(OutputFileName)" -VICIIdsize +confirmexit</EmulatorRunArguments>
+    <EmulatorDebugArguments>-autostart "$(MSBuildProjectDirectory)\$(OutputPath)$(OutputFileName)" -VICIIdsize +confirmexit -initbreak 4096</EmulatorDebugArguments>
+
+    <CompilerOutput>$(OutputPath)$(OutputFileName)</CompilerOutput>
+    <CompilerPath>64tass.exe</CompilerPath>
+    <CompileCommand>$(CompilerPath) -o "$(CompilerOutput)" @(Compile)</CompileCommand>
+    <CustomErrorRegularExpression>(?&lt;File&gt;^.+\..+):(?&lt;Line&gt;\d+): (?&lt;Message&gt;.+)</CustomErrorRegularExpression>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Main.asm">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Launcher.asm" />
+  </ItemGroup>
+  <Import Project="$(VintageStudioPath)\VintageStudio.targets" />
+</Project>

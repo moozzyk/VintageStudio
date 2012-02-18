@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Vsix xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2010">
+  <Identifier Id="Visual64TassEditor.Microsoft.a0e166f9-81a3-4867-9812-6ae8ea2ba262">
+    <Name>Visual64TassEditor</Name>
+    <Author>Pawel Kadluczka</Author>
+    <Version>1.0</Version>
+    <Description xml:space="preserve">Visual64Tass classifier extension to the Visual Studio Editor.</Description>
+    <Locale>1033</Locale>
+    <SupportedProducts>
+      <VisualStudio Version="10.0">
+        <Edition>Ultimate</Edition>
+        <Edition>Premium</Edition>
+        <Edition>Pro</Edition>
+        <Edition>Express_All</Edition>
+        <Edition>IntegratedShell</Edition>
+      </VisualStudio>
+      <IsolatedShell Version="1.0">VSShellStub3</IsolatedShell>
+    </SupportedProducts>
+    <SupportedFrameworkRuntimeEdition MinVersion="4.0" MaxVersion="4.0" />
+  </Identifier>
+  <References />
+  <Content>
+    <MefComponent>|%CurrentProject%|</MefComponent>
+  </Content>
+</Vsix>

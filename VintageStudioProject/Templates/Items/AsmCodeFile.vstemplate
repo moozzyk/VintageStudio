@@ -1,0 +1,14 @@
+﻿<VSTemplate Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>MyCode.asm</DefaultName>
+    <Name>Code file</Name>
+    <Description>An empty asm code file</Description>
+    <Icon>AsmCodeFile.ico</Icon>
+    <ProjectType>Visual65XXProject</ProjectType>
+    <SortOrder>10</SortOrder>
+  </TemplateData>
+  <TemplateContent>
+    <References />
+    <ProjectItem SubType="Code" ItemType="Content" TargetFileName="$fileinputname$.asm" ReplaceParameters="true">MyCode.asm</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

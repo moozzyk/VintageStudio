@@ -1,0 +1,8 @@
+﻿PostBuildSteps
+.comment - .endc block should be marked as comment
+.if .fi - should be marked as disabled if the condition evaluates to false
+* can be *= or 3*5 or .cerror *>$1200,"Program too long!" or jmp * 
+conditional coloring of instructions depending on the target processor (.cpu directive)
+"go to definition" for label (context menu)
+"find all references" for label (context menu)
+.include - go to file (context menu)

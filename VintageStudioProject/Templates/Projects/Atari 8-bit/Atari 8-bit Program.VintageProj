@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Default</Configuration>
+  </PropertyGroup>
+  <PropertyGroup>
+    <!-- Set the VintageStudioPath property by probing in different locations where Vintage Studio could be installed -->
+    <!-- Regular LocalAppData -->
+    <VintageStudioPath Condition=" '$(VintageStudioPath)' == '' AND Exists('$(LocalAppData)\Microsoft\VisualStudio\10.0\Extensions\Pawel Kadluczka\Vintage Studio\1.0')">$(LocalAppData)\Microsoft\VisualStudio\10.0\Extensions\Pawel Kadluczka\Vintage Studio\1.0</VintageStudioPath>
+    <!-- Experimental LocalAppData -->
+    <VintageStudioPath Condition=" '$(VintageStudioPath)' == '' AND Exists('$(LocalAppData)\Microsoft\VisualStudio\10.0Exp\Extensions\Pawel Kadluczka\Vintage Studio\1.0')">$(LocalAppData)\Microsoft\VisualStudio\10.0Exp\Extensions\Pawel Kadluczka\Vintage Studio\1.0</VintageStudioPath>
+</PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
+    <OutputPath>bin\</OutputPath>
+    <OutputFileName>$(Name).prg</OutputFileName>
+    <EmulatorPath>Atari800Win.exe</EmulatorPath>
+    <EmulatorRunArguments>-xl -ntsc -run "$(MSBuildProjectDirectory)\$(OutputPath)$(OutputFileName).xex"</EmulatorRunArguments>
+    <EmulatorDebugArguments>-xl -ntsc -run "$(MSBuildProjectDirectory)\$(OutputPath)$(OutputFileName).xex"</EmulatorDebugArguments>
+
+    <CompilerOutput>$(OutputPath)$(OutputFileName)</CompilerOutput>
+    <CompilerPath>64tass.exe</CompilerPath>
+    <CompileCommand>$(CompilerPath) -o "$(CompilerOutput)" @(Compile)</CompileCommand>
+    <CustomErrorRegularExpression>(?&lt;File&gt;^.+\..+):(?&lt;Line&gt;\d+): (?&lt;Message&gt;.+)</CustomErrorRegularExpression>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Main.asm">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <Import Project="$(VintageStudioPath)\VintageStudio.targets" />
+  
+  <Target Name="AfterBuild">
+    <Message Text="Converting .prg to .xex" />
+    <Exec Command='"$(VintageStudioPath)\prg2xex.exe" "$(CompilerOutput)" "$(CompilerOutput).xex"' />
+  </Target>
+
+</Project>
