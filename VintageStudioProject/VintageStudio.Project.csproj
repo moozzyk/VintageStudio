@@ -13,7 +13,7 @@
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <ProjectBasePath>D:\source\MPFProj10-51806\Dev10\Src\CSharp</ProjectBasePath>
+    <ProjectBasePath>$(SolutionDir)..\MPFProj10-51806\Dev10\Src\CSharp</ProjectBasePath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -99,7 +99,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="C:\Program Files %28x86%29\Microsoft Visual Studio 2010 SDK\VisualStudioIntegration\Common\Source\CSharp\RegistrationAttributes\ProvideMSBuildTargetAttribute.cs">
+    <Compile Include="$(DevEnvDir)..\..\..\Microsoft Visual Studio 2010 SDK\VisualStudioIntegration\Common\Source\CSharp\RegistrationAttributes\ProvideMSBuildTargetAttribute.cs">
       <Link>RegistrationAttributes\ProvideMSBuildTargetAttribute.cs</Link>
     </Compile>
     <Compile Include="Guids.cs" />
