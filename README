@@ -1,9 +1,9 @@
-VintageStudio
+VintageStudio - Visual Studio 2010 based IDE for 8-bit computers. (Currently supported: Commodore-64, VIC-20, Atari 8-bit).
 
 Tree:
 +
 |
-+-64TassEditor
++-Visual64TassEditor
 |
 +-VintageStudioProject
 |
@@ -11,6 +11,11 @@ Tree:
 |
 +-VintageStudio.sln
 
-64TassEditor - extensions to VS Editor - syntax coloring, auto formatting etc. 
-VintageSutiodProject - Project System - building (integration with the compiler), running (integration with the emulator)
+Visual64TassEditor - extensions to VS Editor - syntax coloring, auto formatting etc. 
+VintageStudioProject - Project System - building (integration with the compiler), running (integration with the emulator)
 prg2xex - used for converting .prg files (C64 format) to .xex files (Atari format)
+
+
+Requirements:
+ - Visual Studio 2010 Professional (or higher) with Visual C# and Visual C++ installed
+ - Visual Studio 2010 SDK - note for Visual Studio 2010 SP1 you need Visual Studio 2010 SP1 SDK
