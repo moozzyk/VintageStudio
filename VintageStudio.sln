@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visual64TassEditor", "64TassEditor\Visual64TassEditor.csproj", "{B6C458E6-ED78-4219-8A8B-BE67DE9C5BD6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visual64TassEditor", "Visual64TassEditor\Visual64TassEditor.csproj", "{B6C458E6-ED78-4219-8A8B-BE67DE9C5BD6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VintageStudio.Project", "VintageStudioProject\VintageStudio.Project.csproj", "{28A3E916-16DC-404D-B044-F3A49C1E38BA}"
 	ProjectSection(ProjectDependencies) = postProject
