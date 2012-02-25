@@ -99,9 +99,6 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="$(DevEnvDir)..\..\..\Microsoft Visual Studio 2010 SDK\VisualStudioIntegration\Common\Source\CSharp\RegistrationAttributes\ProvideMSBuildTargetAttribute.cs">
-      <Link>RegistrationAttributes\ProvideMSBuildTargetAttribute.cs</Link>
-    </Compile>
     <Compile Include="Guids.cs" />
     <Compile Include="Resources.Designer.cs">
       <AutoGen>True</AutoGen>
