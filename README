@@ -1,15 +1,15 @@
 VintageStudio - Visual Studio 2010 based IDE for 8-bit computers. (Currently supported: Commodore-64, VIC-20, Atari 8-bit).
 
 Tree:
-+
-|
-+-Visual64TassEditor
-|
-+-VintageStudioProject
-|
-+-prg2xex
-|
-+-VintageStudio.sln
+ +
+ |
+ +-Visual64TassEditor
+ |
+ +-VintageStudioProject
+ |
+ +-prg2xex
+ |
+ +-VintageStudio.sln
 
 Visual64TassEditor - extensions to VS Editor - syntax coloring, auto formatting etc. 
 VintageStudioProject - Project System - building (integration with the compiler), running (integration with the emulator)
@@ -18,4 +18,62 @@ prg2xex - used for converting .prg files (C64 format) to .xex files (Atari forma
 
 Requirements:
  - Visual Studio 2010 Professional (or higher) with Visual C# and Visual C++ installed
- - Visual Studio 2010 SDK - note for Visual Studio 2010 SP1 you need Visual Studio 2010 SP1 SDK
+
+Setting up the development environment:
+ - Install Visual Studio 2010 SDK - note for Visual Studio 2010 SP1 you need Visual Studio 2010 SP1 SDK
+ - Download Managed Package Framework for Projects - Visual Studio 2010 (http://mpfproj10.codeplex.com/)
+    Download changeset 51806 (this is currently the latest) and save in MPFProj10-51806 folder
+    next to the VintageStudio solution folder
+ - Fix a NullReferenceException bug in MPFProj:
+    - Find the RefreshReferences() method in MPFProj10-51806\Dev10\Src\CSharp\ProjectConfig.cs
+    - Modify the method to look like this:
+        private void RefreshReferences()
+        {
+            // Refresh the reference container node for assemblies that could be resolved.
+            IReferenceContainer referenceContainer = this.config.ProjectMgr.GetReferenceContainer();
+            if (referenceContainer != null)
+            {
+                foreach (ReferenceNode referenceNode in referenceContainer.EnumReferences())
+                {
+                    referenceNode.RefreshReference();
+                }
+            }
+        }
+
+Building:
+ Build (Ctrl+Shift+B) from the VS. 
+ You may see:
+   Warning: Microsoft.VsSDK.targets(889,5): warning : File 'AsmCodeFile.ico' referenced from VSTemplate does not exist.
+ This is a bug in VS. The warning can be ignored as per this connect bug:
+ http://connect.microsoft.com/VisualStudio/feedback/details/552332/warning-file-bitmap-bmp-referenced-from-vstemplate-does-not-exist
+
+Testing: 
+ Shameful silence (no automated tests exist)
+
+Setting up the runtime environment:
+ - 64tass compiler - manual and link to download here: http://singularcrew.hu/64tass/ 
+ Commodore 64 / VIC-20
+  - Vice emulator - http://www.viceteam.org/ 
+    Hint: make sure you download the "Binary for MS-Windows" and NOT the "SDL based binary for Ms-Windows"
+ Atari 8-bit
+  - Atari800Win emulator - http://atariarea.krap.pl/PLus/index_us.htm
+    Setup instructions - http://www.myatari.co.uk/issues/jun2002/emulate.htm
+    Hint: If you see "BOOT ERROR" in the Atari emulator some settings are probably screwed up (e.g. you have spaces in the path
+    but the path is not enclosed in quotes (")) you need to fix the problem and then start the emulator and detach all disks 
+    (File -> Disks -> Detach All (Alt + 0)), and try again.
+
+ - It is useful to add paths to the compiler and emulator(s) to your %PATH%. (for non-administrator accounts here is how to do that: 
+   http://superuser.com/questions/165909/how-can-i-set-user-environmental-variables-such-as-path-from-a-non-administrato). If you don't 
+   you will have to set full paths to the compiler and the emulator in the project settings for each new proejct. Otherwise it should 
+   work pretty much "out of the box".
+
+ Hint: If you change the start address of the program (at the moment it is $1000) you may need to set it in the settings as well to 
+ be able to debug your program in Vice. Atari800Win does not support starting in debug mode.
+
+
+Debugging:
+ F5 in the VS. It will open the experimental instance of the Visual Studio with the extensions installed. You can set breakpoints
+ and step through the code in the VS instance you started the experimentatal instance from. 
+
+Running:
+ Ctrl+F5 in the VS. It will open the experimental instance of the Visual Studio with the extensions installed. 
