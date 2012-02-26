@@ -1,0 +1,6 @@
+﻿1. The Software is freeware. You can use it as long as you wish for free. You must not bundle the Software in any other distribution packages and take distribution fees.
+2. You must not (a) sell, rent, lease or sublicense all or any portion of the Software
+3. THE SOFTWARE IS DISTRIBUTED "AS IS". NO WARRANTY OF ANY KIND IS EXPRESSED OR IMPLIED. YOU USE THE SOFTWARE AT YOUR OWN RISK. THE AUTHORS WILL NOT BE LIABLE FOR DATA LOSS, DAMAGES, LOSS OF PROFITS OR ANY OTHER KIND OF LOSS WHILE USING OR MISUSING THE SOFTWARE.
+4. By installing and using the SOFTWARE PRODUCT, you accept all terms and conditions herein.
+
+If you do not agree with anything in this License, you must immediately remove the SOFTWARE PRODUCT from your storage devices and cease to use it.
