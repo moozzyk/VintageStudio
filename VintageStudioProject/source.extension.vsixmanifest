@@ -18,9 +18,15 @@
         <Edition>Express_All</Edition>
         <Edition>IntegratedShell</Edition>
       </VisualStudio>
-      <IsolatedShell Version="1.0">VSShellStub3</IsolatedShell>
+      <VisualStudio Version="11.0">
+        <Edition>Ultimate</Edition>
+        <Edition>Premium</Edition>
+        <Edition>Pro</Edition>
+        <Edition>Express_All</Edition>
+        <Edition>IntegratedShell</Edition>
+      </VisualStudio>
     </SupportedProducts>
-    <SupportedFrameworkRuntimeEdition MinVersion="4.0" MaxVersion="4.0" />
+    <SupportedFrameworkRuntimeEdition MinVersion="4.0" MaxVersion="4.5" />
   </Identifier>
   <References />
   <Content>
