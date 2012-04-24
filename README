@@ -58,9 +58,10 @@ Setting up the runtime environment:
  Atari 8-bit
   - Atari800Win emulator - http://atariarea.krap.pl/PLus/index_us.htm
     Setup instructions - http://www.myatari.co.uk/issues/jun2002/emulate.htm
-    Hint: If you see "BOOT ERROR" in the Atari emulator some settings are probably screwed up (e.g. you have spaces in the path
-    but the path is not enclosed in quotes (")) you need to fix the problem and then start the emulator and detach all disks 
-    (File -> Disks -> Detach All (Alt + 0)), and try again.
+    Hint: If you see "BOOT ERROR" in the Atari emulator some settings are probably screwed up 
+    (e.g. you have spaces in the path but the path is not enclosed in quotes (")) you need to 
+    fix the problem and then start the emulator and detach all disks (File -> Disks -> 
+    Detach All (Alt + 0)), and try again.
 
  - It is useful to add paths to the compiler and emulator(s) to your %PATH%. (for non-administrator accounts here is how to do that: 
    http://superuser.com/questions/165909/how-can-i-set-user-environmental-variables-such-as-path-from-a-non-administrato). If you don't 
