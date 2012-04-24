@@ -20,12 +20,13 @@ Requirements:
  - Visual Studio 2010 Professional (or higher) with Visual C# and Visual C++ installed
 
 Setting up the development environment:
- - Install Visual Studio 2010 SDK - note for Visual Studio 2010 SP1 you need Visual Studio 2010 SP1 SDK
+ - Install Visual Studio 2010 SDK - note for Visual Studio 2010 SP1 you need 
+   Visual Studio 2010 SP1 SDK
  - Download Managed Package Framework for Projects - Visual Studio 2010 (http://mpfproj10.codeplex.com/)
     Download changeset 51806 (this is currently the latest) and save in MPFProj10-51806 folder
     next to the VintageStudio solution folder
  - Fix a NullReferenceException bug in MPFProj:
-    - Find the RefreshReferences() method in MPFProj10-51806\Dev10\Src\CSharp\ProjectConfig.cs
+    - Find the RefreshReferences() method in MPFProj10-51806/Dev10/Src/CSharp/ProjectConfig.cs
     - Modify the method to look like this:
         private void RefreshReferences()
         {
@@ -43,7 +44,8 @@ Setting up the development environment:
 Building:
  Build (Ctrl+Shift+B) from the VS. 
  You may see:
-   Warning: Microsoft.VsSDK.targets(889,5): warning : File 'AsmCodeFile.ico' referenced from VSTemplate does not exist.
+   Warning: Microsoft.VsSDK.targets(889,5): warning : File 'AsmCodeFile.ico' referenced from 
+   VSTemplate does not exist.
  This is a bug in VS. The warning can be ignored as per this connect bug:
  http://connect.microsoft.com/VisualStudio/feedback/details/552332/warning-file-bitmap-bmp-referenced-from-vstemplate-does-not-exist
 
@@ -63,18 +65,31 @@ Setting up the runtime environment:
     fix the problem and then start the emulator and detach all disks (File -> Disks -> 
     Detach All (Alt + 0)), and try again.
 
- - It is useful to add paths to the compiler and emulator(s) to your %PATH%. (for non-administrator accounts here is how to do that: 
-   http://superuser.com/questions/165909/how-can-i-set-user-environmental-variables-such-as-path-from-a-non-administrato). If you don't 
-   you will have to set full paths to the compiler and the emulator in the project settings for each new proejct. Otherwise it should 
-   work pretty much "out of the box".
+ - It is useful to add paths to the compiler and emulator(s) to your %PATH%. (for non-administrator 
+   accounts here is how to do that: 
+   http://superuser.com/questions/165909/how-can-i-set-user-environmental-variables-such-as-path-from-a-non-administrato). 
+   If you don't you will have to set full paths to the compiler and the emulator in the project 
+   settings for each new proejct. Otherwise it should work pretty much "out of the box".
 
- Hint: If you change the start address of the program (at the moment it is $1000) you may need to set it in the settings as well to 
- be able to debug your program in Vice. Atari800Win does not support starting in debug mode.
+ Hint: If you change the start address of the program (at the moment it is $1000) you may need to 
+ set it in the settings as well to be able to debug your program in Vice. Atari800Win does not 
+ support starting in debug mode.
 
 
-Debugging:
- F5 in the VS. It will open the experimental instance of the Visual Studio with the extensions installed. You can set breakpoints
- and step through the code in the VS instance you started the experimentatal instance from. 
+Debugging / Debugging:
 
-Running:
- Ctrl+F5 in the VS. It will open the experimental instance of the Visual Studio with the extensions installed. 
+ Go to Project Properties (right-click on the project in the Solution Explorer and select
+ Properties) -> Debug tab and make sure that "Start Action" is set to "Start External
+ Program:" and the path is set to the Visual Studio (e.g. 
+ c:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\ide\devenv.exe). In the 
+ "Command line arguments" in the "Start options" you should see:
+ /rootSuffix Exp
+ If this is not set correctly you will see a dialog box reading "A project with an Output
+ Type of Class Library cannot be started directly." when trying to start or debug the project
+
+ F5 in the VS to run the project. It will open the experimental instance of the Visual Studio 
+ with the extensions installed. You can set breakpoints and step through the code in the  
+ Visual Studio instance you started the experimental instance from. 
+
+ Ctrl+F5 to debug in the VS. It will open the experimental instance of the Visual Studio with 
+ the extensions installed. 
