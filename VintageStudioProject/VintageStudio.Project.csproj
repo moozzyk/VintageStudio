@@ -130,6 +130,9 @@
     </None>
     <EmbeddedResource Include="Resources\65XXProgram.bmp" />
     <None Include="ReadMe.txt" />
+    <Content Include="License.txt">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="prg2xex.exe">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
