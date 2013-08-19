@@ -55,7 +55,7 @@ Testing:
  Shameful silence (no automated tests exist)
 
 Setting up the runtime environment:
- - 64tass compiler - manual and link to download here: http://singularcrew.hu/64tass/ 
+ - 64tass compiler - manual and link to download here: http://sourceforge.net/projects/tass64/ 
  - Emulator:
     Commodore 64 / VIC-20
     - Vice emulator - http://www.viceteam.org/ 
