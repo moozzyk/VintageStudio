@@ -6,9 +6,13 @@
   <PropertyGroup>
     <!-- Set the VintageStudioPath property by probing in different locations where Vintage Studio could be installed -->
     <!-- Regular LocalAppData -->
-    <VintageStudioPath Condition=" '$(VintageStudioPath)' == '' AND Exists('$(LocalAppData)\Microsoft\VisualStudio\10.0\Extensions\Pawel Kadluczka\Vintage Studio\1.0')">$(LocalAppData)\Microsoft\VisualStudio\10.0\Extensions\Pawel Kadluczka\Vintage Studio\1.0</VintageStudioPath>
+    <VintageStudioTargetsFilePath Condition="'$(VintageStudioTargetsFilePath)' == '' AND Exists('$(LocalAppData)\Microsoft\VisualStudio\12.0\Extensions')">$([System.IO.Directory]::GetFiles('$(LocalAppData)\Microsoft\VisualStudio\12.0\Extensions', 'VintageStudio.targets', System.IO.SearchOption.AllDirectories))</VintageStudioTargetsFilePath>
+    <VintageStudioTargetsFilePath Condition="'$(VintageStudioTargetsFilePath)' == '' AND Exists('$(LocalAppData)\Microsoft\VisualStudio\11.0\Extensions')">$([System.IO.Directory]::GetFiles('$(LocalAppData)\Microsoft\VisualStudio\11.0\Extensions', 'VintageStudio.targets', System.IO.SearchOption.AllDirectories))</VintageStudioTargetsFilePath>
+    <VintageStudioTargetsFilePath Condition="'$(VintageStudioTargetsFilePath)' == '' AND Exists('$(LocalAppData)\Microsoft\VisualStudio\10.0\Extensions\Pawel Kadluczka\Vintage Studio\1.0')">$([System.IO.Directory]::GetFiles('$(LocalAppData)\Microsoft\VisualStudio\10.0\Extensions\Pawel Kadluczka\Vintage Studio\1.0', 'VintageStudio.targets', System.IO.SearchOption.AllDirectories))</VintageStudioTargetsFilePath>
     <!-- Experimental LocalAppData -->
-    <VintageStudioPath Condition=" '$(VintageStudioPath)' == '' AND Exists('$(LocalAppData)\Microsoft\VisualStudio\10.0Exp\Extensions\Pawel Kadluczka\Vintage Studio\1.0')">$(LocalAppData)\Microsoft\VisualStudio\10.0Exp\Extensions\Pawel Kadluczka\Vintage Studio\1.0</VintageStudioPath>
+    <VintageStudioTargetsFilePath Condition="'$(VintageStudioTargetsFilePath)' == '' AND Exists('$(LocalAppData)\Microsoft\VisualStudio\12.0Exp\Extensions')">$([System.IO.Directory]::GetFiles('$(LocalAppData)\Microsoft\VisualStudio\12.0Exp\Extensions', 'VintageStudio.targets', System.IO.SearchOption.AllDirectories))</VintageStudioTargetsFilePath>
+    <VintageStudioTargetsFilePath Condition="'$(VintageStudioTargetsFilePath)' == '' AND Exists('$(LocalAppData)\Microsoft\VisualStudio\11.0Exp\Extensions')">$([System.IO.Directory]::GetFiles('$(LocalAppData)\Microsoft\VisualStudio\11.0Exp\Extensions', 'VintageStudio.targets', System.IO.SearchOption.AllDirectories))</VintageStudioTargetsFilePath>
+    <VintageStudioTargetsFilePath Condition="'$(VintageStudioTargetsFilePath)' == '' AND Exists('$(LocalAppData)\Microsoft\VisualStudio\10.0Exp\Extensions\Pawel Kadluczka\Vintage Studio\1.0')">$([System.IO.Directory]::GetFiles('$(LocalAppData)\Microsoft\VisualStudio\10.0Exp\Extensions\Pawel Kadluczka\Vintage Studio\1.0', 'VintageStudio.targets', System.IO.SearchOption.AllDirectories))</VintageStudioTargetsFilePath>
 </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
     <OutputPath>bin\</OutputPath>
@@ -28,7 +32,7 @@
     </Compile>
   </ItemGroup>
 
-  <Import Project="$(VintageStudioPath)\VintageStudio.targets" />
+  <Import Project="$(VintageStudioTargetsFilePath)" />
   
   <Target Name="AfterBuild">
     <Message Text="Converting .prg to .xex" />
